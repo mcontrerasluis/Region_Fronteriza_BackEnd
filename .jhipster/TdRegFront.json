@@ -1,0 +1,93 @@
+{
+  "name": "TdRegFront",
+  "fields": [
+    {
+      "fieldName": "region",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "domicilioRegion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sucursalRegion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tipoImpuestod",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tipoSolicitudd",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ejerciciod",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tcTipoSol",
+      "otherEntityRelationshipName": "tdRegFront",
+      "relationshipName": "tipoSolicitud",
+      "otherEntityField": "descripcion"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tcTipoImp",
+      "otherEntityRelationshipName": "tdRegFront",
+      "relationshipName": "tipoImpuesto",
+      "otherEntityField": "descripcion"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tcEjerc",
+      "otherEntityRelationshipName": "tdRegFront",
+      "relationshipName": "ejercicio",
+      "otherEntityField": "valor"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "tcManifes",
+      "otherEntityRelationshipName": "general",
+      "relationshipName": "manifestacion",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "tcValida",
+      "otherEntityRelationshipName": "general",
+      "relationshipName": "validacion",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tdGeneral",
+      "otherEntityRelationshipName": "tipoSolicitud",
+      "relationshipName": "general",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201214202056",
+  "entityTableName": "td_reg_front",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["fronteriza", "servicios"],
+  "microserviceName": "servicios"
+}
